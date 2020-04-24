@@ -66,5 +66,10 @@ public class MainController {
 		}
 		return "redirect:usuarios";
 	}
+	
+	@RequestMapping(value = "/borrarUsuarios", method = RequestMethod.POST)
+	public String borrarUsuario(Cliente cliente, Model model) {
+		return "redirect:usuarios";
+	}
 
 }
