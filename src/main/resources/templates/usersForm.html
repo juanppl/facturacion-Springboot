@@ -19,10 +19,22 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td ><input type="text" th:field="*{nombre}" /></td>
-					<td ><input type="text" th:field="*{apellido}" /></td>
-					<td ><input type="text" th:field="*{mail}" /></td>
-					<td ><input type="date" th:field="*{created}" /></td>
+					<td >
+						<input type="text" th:field="*{nombre}" />
+						<label class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></label>
+					</td>
+					<td >
+						<input type="text" th:field="*{apellido}" />
+						<label class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></label>
+					</td>
+					<td >
+						<input type="text" th:field="*{mail}" />
+						<label class="form-text text-danger" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></label>
+					</td>
+					<td >
+						<input type="date" th:field="*{created}" />
+						<label class="form-text text-danger" th:if="${#fields.hasErrors('created')}" th:errors="*{created}"></label>
+					</td>
 				</tr>
 			</tbody>
 			</table>

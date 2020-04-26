@@ -34,4 +34,9 @@ public class ServiceApp implements IserviceApp{
 		return persistenceApp.editarCliente(cliente);
 	}
 
+	@Override
+	public boolean borrarCliente(Cliente cliente) {
+		return persistenceApp.borrarCliente(cliente);
+	}
+
 }

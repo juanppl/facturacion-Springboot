@@ -67,4 +67,15 @@ public class PersistenceApp implements IpersistenceApp{
 		return false;
 	}
 
+	@Transactional
+	@Override
+	public boolean borrarCliente(Cliente cliente) {
+		try {
+			em.remove(cliente);
+		}catch(Exception e) {
+			System.out.println("Exception removing client "+e);
+		}
+		return false;
+	}
+
 }

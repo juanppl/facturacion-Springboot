@@ -13,4 +13,6 @@ public interface IpersistenceApp {
 	public boolean guardarCliente(Cliente cliente);
 
 	public boolean editarCliente(Cliente cliente);
+	
+	public boolean borrarCliente(Cliente cliente);
 }
