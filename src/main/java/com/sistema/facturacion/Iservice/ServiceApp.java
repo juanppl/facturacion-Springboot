@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sistema.facturacion.Ipersistence.IpersistenceApp;
 import com.sistema.facturacion.models.entity.Cliente;
+import com.sistema.facturacion.models.entity.Producto;
 
 @Service
 public class ServiceApp implements IserviceApp{
@@ -37,6 +38,11 @@ public class ServiceApp implements IserviceApp{
 	@Override
 	public boolean borrarCliente(Cliente cliente) {
 		return persistenceApp.borrarCliente(cliente);
+	}
+
+	@Override
+	public List<Producto> buscarProductosPorNombre(String term) {
+		return persistenceApp.buscarProductosPorNombre(term);
 	}
 
 }

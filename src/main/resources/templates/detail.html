@@ -25,6 +25,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<a class="btn btn-primary btn-xs" th:href="@{/modFacturas/factura/}+${cliente.id}">Crear Factura</a>
 				<div th:if="${#lists.isEmpty(cliente.facturas)}"
 					class="alert alert-info"
 					th:text="'No hay facturas asignadas para el cliente '+ ${cliente.nombre}+' '+${cliente.apellido}"></div>

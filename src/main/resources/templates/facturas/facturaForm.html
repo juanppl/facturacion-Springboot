@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.com">
+<head th:insert="layout/layout :: styles"></head>
+<body>
+	<header th:replace="layout/menu :: navBar"></header>
+
+	<div class="container py-3">
+		<div class="card bg-light">
+			<div class="card-header">Crear Factura</div>
+			<div class="card-body">
+				<h4 class="card-title">
+					<a class="btn btn-primary btn-xs"th:href="@{/facturacion/factura/}+${factura.cliente.id}"th:text="'Volver'"></a>
+				</h4>
+				<form th:action="@{/factura/facturaForm}" th:object="${factura}" method="post">
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Cliente</label> 
+						<div class="col-sm-6">
+							<input type="text" class="form-control" th:value="${factura.cliente.nombre}+' '+${factura.cliente.apellido}" disabled="disabled">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Descripcion</label> 
+						<div class="col-sm-6">
+							<input type="text" th:field="*{descripcion}" class="form-control">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Observacion</label>
+						<div class="col-sm-6">
+							<textarea th:field="*{observacion}" class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="buscarProducto" class="col-sm-2 col-form-label" th:text="'Buscar Producto'"></label> 
+						<div class="col-sm-6">
+							<input type="text" name="buscarProducto" id="buscarProducto" class="form-control">
+						</div>
+					</div>
+					<table th:replace="layout/plantillaItems :: itemsFactura"></table>
+					<table id="cargarItemsProducto" class="table table-sm table-stripped table-hover">
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Precio</th>
+							<th>Cantidad</th>
+							<th>Total</th>
+							<th>Eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+					</table>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<button type="submit" class="btn btn-secondary">Crear Factura</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script th:replace="layout/autocomplete :: javascript"></script>
+</body>
+</html>

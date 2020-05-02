@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,6 +18,9 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @SuppressWarnings("serial")
+@NamedQueries({
+	@NamedQuery(name = "findAllProducts", query = "select p from Producto p where p.nombre like :term"),
+})
 @Entity
 @Table(name = "producto")
 public class Producto implements Serializable{
